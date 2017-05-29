@@ -1,0 +1,55 @@
+﻿<UserControl x:Name="userControl" x:Class="Prototype1.ActiveAppSpace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Prototype1"
+             xmlns:activity="clr-namespace:Prototype1.Activity_Classes"
+             xmlns:style="clr-namespace:Prototype1.Styles"
+             mc:Ignorable="d" MouseDown="userControl_MouseDown"
+             Width= "{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" 
+             d:DesignWidth="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" 
+             Background="Transparent"
+              VerticalAlignment="Center" HorizontalAlignment="Center">
+    <UserControl.Resources>
+        <style:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <ControlTemplate x:Key="descriptionTextBoxControlTemplate" TargetType="{x:Type TextBox}">
+            <ScrollViewer
+                        x:Name="PART_ContentHost"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        </ControlTemplate>
+
+        <Storyboard x:Key="FadeOut">
+            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="Opacity" From="1" To="0" />
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid>
+        <Grid x:Name="grid" Background="Black" Grid.Height="Auto" MouseDown="Grid_MouseDown" MouseMove="Grid_MouseMove" MouseUp="Grid_MouseUp" Visibility="Collapsed" Margin="0,0,0,0" VerticalAlignment="Bottom">
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="Red" Opacity="1.0" BlurRadius="10.0"/>
+            </Grid.Effect>
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="gtt"/>
+            </Grid.RenderTransform>
+            <DockPanel x:Name="MainMenu">
+                <local:MenuHeader DockPanel.Dock="Top" x:Name="header" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" />
+                <local:FilterPanel x:Name="FilterSection" DockPanel.Dock="Top" />
+                <Button x:Name="button" Content="Close" Height="30" VerticalAlignment="Top" Width="75" DockPanel.Dock="Top" HorizontalAlignment="Right" Click="CloseButton_Click"/>
+                <local:ActivityMatrix x:Name="ActivitySection"
+                                  activity:ActivityView.ActivityActivated="ActivitySection_ActivityActivated" 
+                                  FilterTags="{Binding FiltersTags, ElementName=FilterSection}" 
+                                  SearchTag="{Binding SearchTag, ElementName=header}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Name="transitionGrid" Background="Black" Panel.ZIndex="1"
+              Visibility="Visible">
+            <MediaElement x:Name="transition"
+                      MediaEnded="transition_MediaEnded"
+                      UnloadedBehavior="Manual"/>
+        </Grid>
+
+    </Grid>
+</UserControl>
+
+
+
