@@ -1,0 +1,208 @@
+﻿<Window x:Class="Prototype1.VirtualKeyboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prototype1"
+        mc:Ignorable="d"
+        Width= "{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" 
+        d:DesignWidth="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" 
+        Title="VirtualKeyboard"  SizeChanged="Window_SizeChanged" Focusable="False" Topmost="True" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" WindowState="Maximized" AllowsTransparency="True" Background="#00000000" WindowStyle="None" Loaded="Window_Loaded">
+    <Grid Name="grid" VerticalAlignment="Bottom" Background="White" Margin="0,0,0,5" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp" MouseMove="Grid_MouseMove">
+        <Border BorderThickness="1" BorderBrush="Black"></Border>
+        <Grid Margin="0,0,0,10" HorizontalAlignment="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
+                <Button x:Name="button_Copy" Content="ESC" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy_Click" FontSize="9"/>
+                <Button x:Name="button_Copy1" Content="F1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy1_Click" FontSize="9"/>
+                <Button x:Name="button_Copy2" Content="F2" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy2_Click" FontSize="9"/>
+                <Button x:Name="button_Copy3" Content="F3" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy3_Click" FontSize="9"/>
+                <Button x:Name="button_Copy4" Content="F4" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy4_Click" FontSize="9"/>
+                <Button x:Name="button_Copy5" Content="F5" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy5_Click" FontSize="9"/>
+                <Button x:Name="button_Copy6" Content="F6" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy6_Click" FontSize="9"/>
+                <Button x:Name="button_Copy7" Content="F7" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy7_Click" FontSize="9"/>
+                <Button x:Name="button_Copy8" Content="F8" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy8_Click" FontSize="9"/>
+                <Button x:Name="button_Copy9" Content="F9" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy9_Click" FontSize="9"/>
+                <Button x:Name="button_Copy10" Content="F10" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy10_Click" FontSize="9"/>
+                <Button x:Name="button_Copy11" Content="F11" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy11_Click" FontSize="9"/>
+                <Button x:Name="button_Copy12" Content="F12" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy12_Click" FontSize="9"/>
+                <Button x:Name="PrtScn" Content="PrtScn" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="PrtScn_Click" FontSize="9"/>
+                <Button x:Name="ScrLk" Content="ScrLk" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="ScrLk_Click" FontSize="9"/>
+                <Button x:Name="Pause" Content="Pause" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="Pause_Click" FontSize="9"/>
+                <Image Source="/childSlave;component/Resources/CULogo.gif"  Width="160" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" />
+                <Image Source="/childSlave;component/Resources/Buttons/closebutton.png" Name="closeButton" Width="35" HorizontalAlignment="Right" Margin="5,0,0,0" VerticalAlignment="Top" MouseEnter="closeButton_MouseEnter" MouseLeave="closeButton_MouseLeave" MouseDown="closeButton_MouseDown" Stretch="Uniform" />
+            </DockPanel>
+            <Grid Grid.Row ="1" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Background="Gray" CornerRadius="20" BorderThickness="4" Grid.Column="0" Grid.RowSpan="5" Height="Auto" Margin="10,0,-10,-10">
+
+                </Border>
+                <DockPanel Grid.Row="0" Grid.Column="0">
+                    <Button x:Name="button_Copy13" Grid.Row="0" Content="~&#xa;`" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="45" Click="button_Copy13_Click" Width="45" FontSize="9"/>
+                    <Button x:Name="button_Copy14" Grid.Row="0" Content="!&#xa;1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy14_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy15" Grid.Row="0" Content="@&#xa;2" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy15_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy16" Grid.Row="0" Content="#&#xa;3" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy16_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy17" Grid.Row="0" Content="$&#xa;4" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy17_Click" FontSize="9"/>
+
+                    <Button x:Name="button_Copy19" Grid.Row="0" Content="^&#xa;6" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy19_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy20" Grid.Row="0" Content="&amp;&#xa;7" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy20_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy21" Grid.Row="0" Content="*&#xa;8" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy21_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy22" Grid.Row="0" Content="(&#xa;9" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy22_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy23" Grid.Row="0" Content=")&#xa;0" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy23_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy24" Grid.Row="0" Content="__&#xa;-" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy24_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy25" Grid.Row="0" Content="+&#xa;=" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy25_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy26" Grid.Row="0" Content="Backspace" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="110" Height="45" Click="button_Copy26_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <Button x:Name="button_Copy27" Grid.Row="1" Content="Tab" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Width="65" Height="45" Click="button_Copy27_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy28" Grid.Row="1" Content="Q" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy28_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy29" Grid.Row="1" Content="W" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy29_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy30" Grid.Row="1" Content="E" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy30_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy31" Grid.Row="1" Content="R" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy31_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy32" Grid.Row="1" Content="T" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy32_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy33" Grid.Row="1" Content="Y" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy33_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy34" Grid.Row="1" Content="U" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy34_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy35" Grid.Row="1" Content="I" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy35_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy36" Grid.Row="1" Content="O" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy36_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy37" Grid.Row="1" Content="P" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy37_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy38" Grid.Row="1" Content="{}{&#xa;[" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy38_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy39" Grid.Row="1" Content="{}}&#xa;]" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy39_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy40" Grid.Row="1" Content="|&#xa;\" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy40_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="0" Margin="0,-5,0,0">
+                    <ToggleButton x:Name="CapsLock" Grid.Row="2" Content="Caps Lock" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="65" Height="45" FontSize="9" />
+                    <Button x:Name="button_Copy42" Grid.Row="2" Content="A" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy42_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy43" Grid.Row="2" Content="S" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy43_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy44" Grid.Row="2" Content="D" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy44_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy45" Grid.Row="2" Content="F" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy45_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy46" Grid.Row="2" Content="G" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy46_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy47" Grid.Row="2" Content="H" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy47_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy48" Grid.Row="2" Content="J" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy48_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy49" Grid.Row="2" Content="K" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy49_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy50" Grid.Row="2" Content="L" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy50_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy51" Grid.Row="2" Content=":&#xa;;" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy51_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy52" Grid.Row="2" Content="&quot;&#xa;&apos;" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy52_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy53" Grid.Row="2" Content="Enter" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="90" Height="45" Click="button_Copy53_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="0" Margin="0,5,0,0">
+                    <ToggleButton x:Name="Shift1" Grid.Row="3" Content="Shift" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="100" Height="45" IsChecked="False" FontSize="9"/>
+                    <Button x:Name="button_Copy55" Grid.Row="3" Content="Z" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy55_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy56" Grid.Row="3" Content="X" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy56_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy57" Grid.Row="3" Content="C" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy57_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy58" Grid.Row="3" Content="V" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy58_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy59" Grid.Row="3" Content="B" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy59_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy60" Grid.Row="3" Content="N" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy60_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy61" Grid.Row="3" Content="M" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy61_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy62" Grid.Row="3" Content="&lt;&#xa;," HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy62_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy63" Grid.Row="3" Content="&gt;&#xa;." HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy63_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy64" Grid.Row="3" Content="?&#xa;/" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy64_Click" FontSize="9"/>
+                    <ToggleButton x:Name="Shift2" Grid.Row="3" Content="Shift" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="45" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="0" Margin="0,5,0,0">
+                    <ToggleButton x:Name="CTL1" Grid.Row="4" Content="Ctrl" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="75" Height="45" FontSize="9"/>
+                    <Button x:Name="button_Copy68" Grid.Row="4" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy68_Click" FontSize="9"/>
+                    <ToggleButton x:Name="Alt1" Grid.Row="4" Content="Alt" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" FontSize="9"/>
+                    <Button x:Name="button_Copy70" Grid.Row="4" Content="" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="275" Height="45" Click="button_Copy70_Click" FontSize="9"/>
+                    <ToggleButton x:Name="Alt2" Grid.Row="4" Content="Alt" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" FontSize="9"/>
+                    <Button x:Name="button_Copy72" Grid.Row="4" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy72_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy73" Grid.Row="4" Content="Task" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" FontSize="9"/>
+                    <ToggleButton x:Name="CTL2" Grid.Row="4" Content="Ctrl" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Height="45" FontSize="9"/>
+                </DockPanel>
+                <Border Background="Gray" CornerRadius="20" BorderThickness="4" Grid.Column="1" Grid.RowSpan="2" Height="Auto" Margin="10,0,-10,0">
+                </Border>
+                <DockPanel Grid.Row="0" Grid.Column="1" Margin="0,10,0,0">
+                    <Button x:Name="button_Copy75" Grid.Column="1" Grid.Row="0" Content="Insert" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy75_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy76" Grid.Column="1" Grid.Row="0" Content="Home" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy76_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy77" Grid.Column="1" Grid.Row="0" Content="PgUp" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy77_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="1" Margin="0,5,0,0">
+                    <Button x:Name="button_Copy78" Grid.Column="1" Grid.Row="1" Content="Delete" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy78_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy79" Grid.Column="1" Grid.Row="1" Content="End" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy79_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy80" Grid.Column="1" Grid.Row="1" Content="PgDn" HorizontalAlignment="Left" Margin="0,0,0,10" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy80_Click" FontSize="9"/>
+                </DockPanel>
+                <Border Background="Gray" CornerRadius="20" BorderThickness="4" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Height="Auto" Margin="10,-5,-10,-10">
+                </Border>
+                <DockPanel Grid.Row="3" Grid.Column="1" Margin="0,5,0,0">
+                    <Button x:Name="button_Copy82" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Margin="20,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy82_Click" FontSize="9">
+                        <TextBlock Text="&gt;" VerticalAlignment="Center">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"/>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Button>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="1" Margin="0,5,0,0">
+                    <Button x:Name="button_Copy84" Grid.Column="1" Grid.Row="4" Content="&lt;" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy84_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy85" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy85_Click" FontSize="9">
+                        <TextBlock Text="&lt;" VerticalAlignment="Center">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"/>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Button>
+                    <Button x:Name="button_Copy86" Grid.Column="1" Grid.Row="4" Content="&gt;" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy86_Click" FontSize="9"/>
+                </DockPanel>
+
+                <Border Background="Gray" CornerRadius="20" BorderThickness="4" Grid.Column="2" Grid.Row="0" Grid.RowSpan="5" Height="Auto" Margin="5,0,-10,-10">
+                </Border>
+                <DockPanel Grid.Row="0" Grid.Column="2">
+                    <ToggleButton x:Name="NumLock" Grid.Column="2" Grid.Row="0" Content="Num&#xa;Lock" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="45" Height="45" FontSize="9"/>
+                    <Button x:Name="button_Copy88" Grid.Column="2" Grid.Row="0" Content="/" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy88_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy89" Grid.Column="2" Grid.Row="0" Content="*" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy89_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy90" Grid.Column="2" Grid.Row="0" Content="-" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy90_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="2">
+                    <Button x:Name="button_Copy91" Grid.Column="2" Grid.Row="1" Content="    7&#xa;Home" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy91_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy92" Grid.Column="2" Grid.Row="1" Content="8" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy92_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy93" Grid.Column="2" Grid.Row="1" Content="   9&#xa;PgUp" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy93_Click" FontSize="9"/>
+
+                </DockPanel>
+                <Button x:Name="button_Copy94" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Content="+" HorizontalAlignment="Right" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="95" Click="button_Copy94_Click" FontSize="9"/>
+                <DockPanel Grid.Row="2" Grid.Column="2" Margin="0,-5,0,0">
+                    <Button x:Name="button_Copy95" Grid.Column="2" Grid.Row="2" Content="4&#xa;&lt;" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy95_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy96" Grid.Column="2" Grid.Row="2" Content="5" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy96_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy97" Grid.Column="2" Grid.Row="2" Content="6&#xa;&gt;" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy97_Click" FontSize="9"/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="2" Margin="0,5,0,0">
+                    <Button x:Name="button_Copy98" Grid.Column="2" Grid.Row="3" Content="  1&#xa;End" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy98_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy99" Grid.Column="2" Grid.Row="3" Content="2" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy99_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy100" Grid.Column="2" Grid.Row="3" Content="  3&#xa;PgDn" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy100_Click" FontSize="9"/>
+
+                </DockPanel>
+                <Button x:Name="button_Copy101" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" Content="Enter" HorizontalAlignment="Right" Margin="0,5,0,0" VerticalAlignment="Top" Width="45" Height="95" Click="button_Copy101_Click" FontSize="9"/>
+                <DockPanel Grid.Row="4" Grid.Column="2" Margin="0,5,0,0">
+                    <Button x:Name="button_Copy102" Grid.Column="2" Grid.Row="4" Content=" 0&#xa;Ins" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="90" Height="45" Click="button_Copy102_Click" FontSize="9"/>
+                    <Button x:Name="button_Copy104" Grid.Column="2" Grid.Row="4" Content="  .&#xa;Del" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="45" Height="45" Click="button_Copy104_Click" FontSize="9"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+
