@@ -1,0 +1,61 @@
+﻿<Window x:Class="Prototype1.Activity_Classes.VidPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prototype1.Activity_Classes"
+        xmlns:style="clr-namespace:Prototype1.Styles"
+        mc:Ignorable="d" Closing="Window_Closing"
+        Title="VidPlayer"  d:DesignWidth="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"
+             d:DesignHeight="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowState="Maximized" Visibility="Visible" >
+    <Grid Name="mainGrid" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" Margin="0">
+        <Image Source="/childSlave;component/Resources/MenuBackgroundDraft_v4.jpg" />
+        <Grid Name="Back" VerticalAlignment="Bottom" MouseDown="Grid_MouseDown" MouseMove="Grid_MouseMove" MouseUp="Grid_MouseUp" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}">
+            <Image Source="/childSlave;component/Resources/gray.jpg" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}" Stretch="Fill"/>
+            <Image Source="/childSlave;component/Resources/Buttons/closebutton.png" Opacity="1.0" Stretch="Uniform" Name="button"  HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Visible" Height="57" Margin="0,0,4,0" RenderTransformOrigin="0.5,0.5" Width="57" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Grid.Row="0" Panel.ZIndex="1"/>
+            <Image Name="multiscreenButton" Source="/childSlave;component/Resources/button_multi-screen-mode.png" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,10,10" MouseDown="multiScreenButton_MouseSingleClick" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Visibility="Collapsed" Panel.ZIndex="1" Stretch="Uniform"/>
+            <Grid x:Name="grid" Background="Black" Visibility="Visible" Margin="0,0,0,0" VerticalAlignment="Center" Panel.ZIndex="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <MediaElement Name="mePlayer" Grid.Row="0" LoadedBehavior="Manual" ScrubbingEnabled="True" Stretch="Fill" MouseDown="mePlayer_MouseDown" MediaOpened="MePlayer_MediaOpened" MediaEnded="MePlayer_MediaEnded"/>
+                <StatusBar x:Name="ProgressStatusBar" Grid.Row="1" Visibility="Visible">
+                    <StatusBar.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </ItemsPanelTemplate>
+                    </StatusBar.ItemsPanel>
+                    <StatusBarItem VerticalContentAlignment="Center">
+                        <TextBlock Name="lblProgressStatus" Text="00:00:00" FontSize="20" Margin="5,0,0,0"/>
+                    </StatusBarItem>
+                    <StatusBarItem Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center">
+                        <Slider Name="sliProgress" ValueChanged="sliProgress_ValueChanged"
+                        Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" PreviewMouseDown="sliProgress_MouseDown"
+                        VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+                        IsEnabled="True" MinHeight="40"/>
+                    </StatusBarItem>
+                    <StatusBarItem Grid.Column="2" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Right">
+                        <Slider Name="pbVolume" Width="124" Minimum="0" Maximum="1"
+                        Value="{Binding ElementName=mePlayer, Path=Volume}" VerticalContentAlignment="Stretch" 
+                        HorizontalContentAlignment="Stretch" Margin="0,0,5,4">
+                            <Slider.Resources>
+                                <ResourceDictionary>
+                                    <ResourceDictionary.MergedDictionaries>
+                                        <ResourceDictionary Source="../Styles/VolumeSlider.xaml" />
+                                    </ResourceDictionary.MergedDictionaries>
+                                </ResourceDictionary>
+                            </Slider.Resources>
+                        </Slider>
+                    </StatusBarItem>
+                </StatusBar>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
