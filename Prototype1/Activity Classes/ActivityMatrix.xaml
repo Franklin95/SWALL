@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Prototype1.ActivityMatrix"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Prototype1"
+             xmlns:activity="clr-namespace:Prototype1.Activity_Classes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib" d:DesignWidth="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"  
+             mc:Ignorable="d" PreviewMouseDown="VerticalScrollViewer_MouseDown">
+
+    <UserControl.Resources>
+        <activity:ActivitySet x:Key="ActivitySetDataSource" d:IsDataSource="True"/>
+        <!--To use for filtering-->
+        <CollectionViewSource x:Key="FilterActivities"
+                                Source="{Binding Source={StaticResource ActivitySetDataSource}}"
+                                Filter="CollectionViewSource_Filter"/>
+
+        <Storyboard x:Key="FadeIn">
+            <DoubleAnimation Duration="0:0:0.5" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+        </Storyboard>
+        <Storyboard x:Key="FadeOut">
+            <DoubleAnimation Duration="0:0:.5" Storyboard.TargetProperty="Opacity" From="1" To="0" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <ScrollViewer x:Name="VerticalScrollViewer" VerticalScrollBarVisibility="Hidden" PanningMode="VerticalOnly" ManipulationBoundaryFeedback="VerticalScrollViewer_ManipulationBoundaryFeedback" MouseDown="VerticalScrollViewer_MouseDown">
+        <ItemsControl x:Name="Activities" 
+                      ItemsSource="{Binding Source={StaticResource FilterActivities}}" 
+                      Margin="1"
+                      Width="{Binding ElementName=VerticalScrollViewer, Path=Width}"
+                      >
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" IsItemsHost="True" Grid.IsSharedSizeScope="True"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type activity:ActivityView}">
+                    <activity:ActivityView x:Name="AcView" Margin="12"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+    </ScrollViewer>
+
+</UserControl>
