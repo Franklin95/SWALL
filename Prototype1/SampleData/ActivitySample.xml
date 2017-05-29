@@ -1,0 +1,14 @@
+<Activity>
+    <Name>Sample</Name>
+    <ImageLocation>logo.png</ImageLocation>
+    <Type>Game</Type>
+    <Tags>
+      <Tag>Fun</Tag>
+      <Tag>Software</Tag>
+      <Tag>Computer</Tag>
+      <Tag>Great</Tag>
+    </Tags>
+    <Description>
+      A sample game. You'll love it, it's great
+    </Description>
+  </Activity>
