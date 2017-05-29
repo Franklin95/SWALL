@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Filters xmlns="">
+  <FilterType Name="Activity Type">
+    <FilterValue Name="Demo"/>
+    <FilterValue Name="Interactive Animation"/>
+    <FilterValue Name="Animation"/>
+    <FilterValue Name="Video"/>
+    <FilterValue Name="Game"/>
+    <FilterValue Name="Slideshow"/>
+  </FilterType>
+  <FilterType Name="Careers">
+    <FilterValue Name="Healthcare"/>
+    <FilterValue Name="Science"/>
+    <FilterValue Name="Engineering"/>
+  </FilterType>
+  <FilterType Name="Study Area">
+    <FilterValue Name="System"/>
+    <FilterValue Name="Computer"/>
+    <FilterValue Name="Software"/>
+    <FilterValue Name="Biomed"/>
+    <FilterValue Name="Communications"/>
+  </FilterType>
+  <FilterType Name="Applications">
+    <FilterValue Name="Healthcare"/>
+    <FilterValue Name="Science"/>
+    <FilterValue Name="Aerospace"/>
+    <FilterValue Name="Defence/Security"/>
+    <FilterValue Name="IoT"/>
+  </FilterType>
+  <FilterType Name="The Department">
+    <FilterValue Name="History"/>
+    <FilterValue Name="Organization"/>
+    <FilterValue Name="Faculty"/>
+    <FilterValue Name="Organization"/>
+  </FilterType>
+</Filters>
